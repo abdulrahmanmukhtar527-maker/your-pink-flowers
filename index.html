@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9dce8">
+  <title>Your Pink Flowers</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: ui-rounded, "Avenir Next", Avenir, "Segoe UI", sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      --ink: #723b55;
+      --rose: #ee7eaa;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      display: grid;
+      min-width: 320px;
+      min-height: 100svh;
+      place-items: center;
+      margin: 0;
+      overflow: hidden;
+      padding: 28px 20px;
+      background:
+        radial-gradient(ellipse at 50% 70%, rgb(255 255 255 / 54%), transparent 48%),
+        linear-gradient(145deg, #f8d5e3, #f9e3eb 52%, #f5cbdc);
+      color: var(--ink);
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      width: min(100%, 760px);
+      min-height: min(90svh, 820px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: hidden;
+      padding: clamp(36px, 7vh, 68px) 20px 20px;
+      border: 1px solid rgb(255 255 255 / 68%);
+      border-radius: 34px;
+      background: rgb(255 250 252 / 36%);
+      box-shadow: 0 24px 80px rgb(131 67 96 / 12%), inset 0 1px rgb(255 255 255 / 72%);
+      text-align: center;
+      isolation: isolate;
+    }
+
+    .card::before, .card::after {
+      position: absolute;
+      z-index: -1;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgb(255 255 255 / 36%);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .card::before { top: -162px; left: -120px; }
+    .card::after { right: -152px; bottom: -174px; width: 320px; height: 320px; }
+
+    .heading {
+      margin: 0;
+      color: #85445f;
+      font-size: clamp(25px, 5.2vw, 43px);
+      font-weight: 760;
+      letter-spacing: .075em;
+      line-height: 1.16;
+      text-wrap: balance;
+    }
+
+    .heading span {
+      display: inline-block;
+      margin-left: .13em;
+      animation: hello 2.8s ease-in-out infinite;
+      transform-origin: 70% 80%;
+    }
+
+    .subheading {
+      margin: 13px 0 0;
+      color: #c65e87;
+      font-size: clamp(14px, 2.3vw, 18px);
+      font-weight: 700;
+      letter-spacing: .34em;
+      text-indent: .34em;
+    }
+
+    .bouquet {
+      display: block;
+      width: min(100%, 620px);
+      height: auto;
+      max-height: min(67svh, 620px);
+      flex: 1 1 auto;
+      margin-top: 6px;
+      overflow: visible;
+      animation: bloom-in 950ms cubic-bezier(.18,.75,.22,1) both;
+    }
+
+    .sparkle { animation: twinkle 2.7s ease-in-out infinite; }
+    .sparkle:nth-child(2n) { animation-delay: -1.2s; }
+
+    @keyframes bloom-in {
+      from { opacity: 0; transform: translateY(18px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes hello {
+      0%, 84%, 100% { transform: rotate(0); }
+      88% { transform: rotate(13deg); }
+      92% { transform: rotate(-9deg); }
+      96% { transform: rotate(8deg); }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: .42; transform: scale(.8); }
+      50% { opacity: 1; transform: scale(1.13); }
+    }
+
+    @media (max-height: 650px) {
+      .card { min-height: 94svh; padding-top: 24px; }
+      .bouquet { max-height: 65svh; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1 class="heading">YOUR PINK FLOWERS <span aria-hidden="true">🌸</span></h1>
+    <p class="subheading">I LOVE YOU</p>
+
+    <svg class="bouquet" viewBox="0 0 620 570" role="img" aria-labelledby="bouquet-title bouquet-description" xmlns="http://www.w3.org/2000/svg">
+      <title id="bouquet-title">A big bouquet of pink flowers</title>
+      <desc id="bouquet-description">A hand-tied bouquet of pink roses, peonies, and little blossoms wrapped in blush paper and tied with a bow.</desc>
+      <defs>
+        <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+          <stop stop-color="#fff5f5"/>
+          <stop offset=".55" stop-color="#f8c8d8"/>
+          <stop offset="1" stop-color="#edabc3"/>
+        </linearGradient>
+        <linearGradient id="paper-shadow" x1="0" x2="0.9" y1="0" y2="1">
+          <stop stop-color="#f7bdcf"/>
+          <stop offset="1" stop-color="#e99cb6"/>
+        </linearGradient>
+        <linearGradient id="ribbon" x1="0" x2="1" y1="0" y2="1">
+          <stop stop-color="#d9608a"/>
+          <stop offset="1" stop-color="#b83d70"/>
+        </linearGradient>
+        <radialGradient id="petal-light" cx=".35" cy=".28" r=".8">
+          <stop stop-color="#fff9f9"/>
+          <stop offset=".62" stop-color="#ffb5ce"/>
+          <stop offset="1" stop-color="#ed76a2"/>
+        </radialGradient>
+        <radialGradient id="petal-deep" cx=".36" cy=".3" r=".85">
+          <stop stop-color="#ffd4df"/>
+          <stop offset=".62" stop-color="#f394b4"/>
+          <stop offset="1" stop-color="#d95789"/>
+        </radialGradient>
+        <radialGradient id="center" cx=".35" cy=".3">
+          <stop stop-color="#fff2b0"/>
+          <stop offset="1" stop-color="#e9a34d"/>
+        </radialGradient>
+        <g id="rose">
+          <g fill="url(#petal-deep)" stroke="#dc6a95" stroke-opacity=".48" stroke-width="1">
+            <ellipse cy="-23" rx="13" ry="25"/>
+            <ellipse cy="-23" rx="13" ry="25" transform="rotate(45)"/>
+            <ellipse cy="-23" rx="13" ry="25" transform="rotate(90)"/>
+            <ellipse cy="-23" rx="13" ry="25" transform="rotate(135)"/>
+            <ellipse cy="-13" rx="11" ry="19" fill="url(#petal-light)" transform="rotate(22)"/>
+            <ellipse cy="-13" rx="11" ry="19" fill="url(#petal-light)" transform="rotate(82)"/>
+            <ellipse cy="-13" rx="11" ry="19" fill="url(#petal-light)" transform="rotate(142)"/>
+          </g>
+          <path d="M-8 1c1-8 8-12 15-8 7 4 5 13-1 16-7 4-16-1-14-8 1-5 7-7 11-4 4 2 3 7 0 9" fill="none" stroke="#c34e7c" stroke-linecap="round" stroke-width="3"/>
+          <circle cx="7" cy="-2" r="2" fill="#ffd7a0"/>
+        </g>
+        <g id="peony">
+          <g fill="url(#petal-light)" stroke="#e783a5" stroke-opacity=".5" stroke-width="1">
+            <ellipse cy="-20" rx="14" ry="23"/>
+            <ellipse cy="-20" rx="14" ry="23" transform="rotate(40)"/>
+            <ellipse cy="-20" rx="14" ry="23" transform="rotate(80)"/>
+            <ellipse cy="-20" rx="14" ry="23" transform="rotate(120)"/>
+            <ellipse cy="-20" rx="14" ry="23" transform="rotate(160)"/>
+            <ellipse cy="-9" rx="10" ry="17" fill="#fff0f3" transform="rotate(20)"/>
+            <ellipse cy="-9" rx="10" ry="17" fill="#fff0f3" transform="rotate(80)"/>
+            <ellipse cy="-9" rx="10" ry="17" fill="#fff0f3" transform="rotate(140)"/>
+          </g>
+          <circle r="8" fill="url(#center)"/>
+          <circle cx="-3" cy="-2" r="1.5" fill="#bd7743"/>
+          <circle cx="3" cy="1" r="1.5" fill="#bd7743"/>
+          <circle cx="1" cy="-4" r="1.5" fill="#bd7743"/>
+        </g>
+        <g id="sprig">
+          <path d="M0 0c-4-42 5-80 20-112" fill="none" stroke="#658c67" stroke-linecap="round" stroke-width="3"/>
+          <path d="M5-29C-12-47-17-33 5-25M10-48c22-20 27-4 10 1M15-72C-4-88-9-75 13-68M20-91c17-17 23-5 2 4" fill="#a5be9a" stroke="#6e946d" stroke-width="1.3"/>
+          <g fill="#f3a5bf">
+            <circle cx="20" cy="-112" r="6"/>
+            <circle cx="29" cy="-105" r="5"/>
+            <circle cx="12" cy="-103" r="5"/>
+            <circle cx="21" cy="-100" r="4" fill="#f8ceda"/>
+          </g>
+        </g>
+        <g id="leaf">
+          <path d="M0 0C-35-9-39-45-37-56-6-52 8-30 0 0Z" fill="#91ae88" stroke="#648563" stroke-width="2"/>
+          <path d="M-3-3-31-48M-19-27l17 4m-23-15 17 4" fill="none" stroke="#6f926c" stroke-linecap="round" stroke-width="1.5"/>
+        </g>
+      </defs>
+
+      <g fill="#fff" class="sparkle" opacity=".8">
+        <path d="m105 143 5 14 14 5-14 5-5 14-5-14-14-5 14-5z"/>
+        <path d="m485 183 4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/>
+        <path d="m439 103 3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+      </g>
+      <g class="flower">
+        <path d="M302 336c-3-70-11-150-32-225m43 223c3-85 12-155 35-221m-64 239c-30-75-73-124-116-172m154 184c35-82 76-128 120-175m-190 188c-13-61-32-104-58-139m149 145c15-62 38-105 67-140m-116 150c-1-75 2-128 10-178" fill="none" stroke="#6f956d" stroke-linecap="round" stroke-width="5"/>
+      </g>
+
+      <g class="flower"><use href="#leaf" transform="translate(255 302) rotate(-35) scale(1.12)"/><use href="#leaf" transform="translate(349 298) rotate(33) scale(1.08)"/><use href="#leaf" transform="translate(212 334) rotate(-52)"/><use href="#leaf" transform="translate(402 330) rotate(48)"/><use href="#leaf" transform="translate(292 359) rotate(-25) scale(.9)"/><use href="#leaf" transform="translate(357 355) rotate(24) scale(.9)"/></g>
+
+      <g class="flower"><use href="#sprig" transform="translate(182 285) rotate(-17) scale(1.05)"/><use href="#sprig" transform="translate(424 285) rotate(18) scale(1.02)"/><use href="#sprig" transform="translate(244 256) rotate(-7) scale(.82)"/><use href="#sprig" transform="translate(369 254) rotate(9) scale(.82)"/></g>
+
+      <g class="flower" transform="translate(204 205) scale(1.24)"><use href="#peony"/></g>
+      <g class="flower" transform="translate(311 149) scale(1.38)"><use href="#rose"/></g>
+      <g class="flower" transform="translate(418 211) scale(1.23)"><use href="#peony"/></g>
+      <g class="flower" transform="translate(258 287) scale(1.08)"><use href="#rose"/></g>
+      <g class="flower" transform="translate(365 292) scale(1.1)"><use href="#rose"/></g>
+      <g class="flower" transform="translate(154 270) scale(.72)"><use href="#peony"/></g>
+      <g class="flower" transform="translate(466 266) scale(.73)"><use href="#peony"/></g>
+      <g class="flower" transform="translate(254 116) scale(.78)"><use href="#peony"/></g>
+      <g class="flower" transform="translate(368 121) scale(.77)"><use href="#rose"/></g>
+      <g class="flower" transform="translate(311 237) scale(.83)"><use href="#peony"/></g>
+
+      <g class="flower">
+        <path d="m169 289 142 201 131-202c-87 30-185 28-273 1Z" fill="url(#paper)" stroke="#e59eb7" stroke-width="2"/>
+        <path d="m169 289 143 201-30-193c-37 8-77 7-113-8Z" fill="url(#paper-shadow)" opacity=".74"/>
+        <path d="m442 288-131 202 33-194c39 7 70 3 98-8Z" fill="#fff1f4" opacity=".72"/>
+        <path d="M204 324c66 22 144 25 218 1M227 363c55 14 113 15 166 0" fill="none" stroke="#fff9fa" stroke-linecap="round" stroke-opacity=".68" stroke-width="3"/>
+      </g>
+
+      <g class="flower">
+        <path d="M292 370c-8 9-30 7-37 22 14 13 35 6 50-5-3 24 6 41 22 41 13-17 5-34-4-45 21 9 40 7 47-8-13-16-32-14-50-8 8-18 6-37-8-44-18 11-20 27-14 47-18-14-37-18-49-5 6 18 23 25 43 23Z" fill="url(#ribbon)" stroke="#ad3b69" stroke-width="2"/>
+        <path d="M300 385c-16 21-27 53-30 83l38-5 9-66m12-9c19 25 26 52 24 76l-36-2-2-67" fill="#d65e88" stroke="#ad3b69" stroke-linejoin="round" stroke-width="2"/>
+        <path d="M308 386c7 5 16 6 23 0" fill="none" stroke="#f7aac4" stroke-linecap="round" stroke-width="2"/>
+      </g>
+
+      <g fill="#fff" class="sparkle" opacity=".86">
+        <path d="m133 358 4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/>
+        <path d="m479 382 3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+      </g>
+    </svg>
+  </main>
+</body>
+</html>
